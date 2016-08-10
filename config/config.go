@@ -51,6 +51,8 @@ func Set(c *deis.Client, app string, config api.Config) (api.Config, error) {
 		return api.Config{}, err
 	}
 
+	fmt.Println(string(body))
+
 	u := fmt.Sprintf("/v2/apps/%s/config/", app)
 
 	res, reqErr := c.Request("POST", u, body)
